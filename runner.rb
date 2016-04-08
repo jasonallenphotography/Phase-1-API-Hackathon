@@ -1,5 +1,6 @@
 require_relative 'view'
 require_relative 'controller'
+require_relative 'string'
 require 'pry'
 require 'open-uri'
 require 'JSON'

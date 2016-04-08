@@ -72,14 +72,14 @@ class View
           sleep(0.5)
           puts
           puts
-          puts "           .d8888b. 88888888888 8888888888 .d88888b.  "
-          puts "          d88P  Y88b    888     888       d88P   Y88b "
-          puts "          888    888    888     888       888     888 "
-          puts "          888           888     8888888   888     888 "
-          puts "          888  88888    888     888       888     888 "
-          puts "          888    888    888     888       888     888 "
-          puts "          Y88b  d88P    888     888       Y88b. .d88P "
-          puts "           Y8888P88     888     888         Y88888P  "
+          puts "           .d8888b. 88888888888 8888888888 .d88888b.  ".red
+          puts "          d88P  Y88b    888     888       d88P   Y88b ".red
+          puts "          888    888    888     888       888     888 ".red
+          puts "          888           888     8888888   888     888 ".yellow
+          puts "          888  88888    888     888       888     888 ".green
+          puts "          888    888    888     888       888     888 ".light_blue
+          puts "          Y88b  d88P    888     888       Y88b. .d88P ".blue
+          puts "           Y8888P88     888     888         Y88888P  ".pink
 
         when 350..399 then puts "          Pepper spray is your best friend..."
         when 300..349 then puts "          Your neighborhood is 'relatively' safe"
