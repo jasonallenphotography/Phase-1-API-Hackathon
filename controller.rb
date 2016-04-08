@@ -2,6 +2,8 @@ class Controller
   attr_reader :felonies
   def initialize
     @input = nil
+    @custom_start_time = nil
+    @custom_end_time = nil
     @view = View.new
     until @input == "exit"
       run
@@ -23,6 +25,28 @@ class Controller
   def time_of_day
     @view.select_time_of_day
     @time_of_day_input = gets.strip
+    case @time_of_day_input
+      when "1"
+        calculate_felonies_by_time_of_day
+        @felonies = @morning.count
+      when "2"
+        calculate_felonies_by_time_of_day
+        @felonies = @afternoon.count
+      when "3"
+        calculate_felonies_by_time_of_day
+        @felonies = @night.count
+      when "4"
+        @view.ask_start_time
+        @custom_start_time = gets.strip.to_i
+        @view.ask_end_time
+        @custom_end_time = gets.strip.to_i
+
+        calculate_felonies_by_custom
+        @felonies = @custom_time_range.count
+
+      else
+        time_of_day
+    end
     report
   end
 
@@ -50,17 +74,19 @@ class Controller
     end
   end
 
-  def report
-    calculate_felonies_by_time_of_day
-    case @time_of_day_input
-      when "1"
-        @felonies = @morning.count
-      when "2"
-        @felonies = @afternoon.count
-      when "3"
-        @felonies = @night.count
+  def calculate_felonies_by_custom
+    file = open("https://data.cityofnewyork.us/resource/hyij-8hr7.json?precinct=#{@precinct}&occurrence_year=2015")
+    data = file.read
+    ruby_data = JSON.parse(data)
+    # custom
+    ruby_data.select do |crime|
+      if crime["occurrence_hour"].to_i >= @custom_start_time && crime["occurrence_hour"].to_i < @custom_end_time
+        @custom_time_range << crime
+      end
     end
+  end
 
+  def report
     @view.report(@felonies)
     sleep(3)
     self.welcome
@@ -71,6 +97,7 @@ class Controller
     @morning = []
     @afternoon = []
     @night = []
+    @custom_time_range = []
 
     @view.welcome
     @input = gets.strip

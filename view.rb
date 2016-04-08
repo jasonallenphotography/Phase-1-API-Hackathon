@@ -30,7 +30,22 @@ class View
     puts "          1. Morning (6AM until Noon)                                         "
     puts "          2. Afternoon (Noon until 8PM)                                         "
     puts "          3. Night (8PM until 6AM)                                         "
+    puts "          4. Custom time range (you will enter times on next screen)                                         "
     puts
+    puts "==".center(80, "=")
+  end
+
+  def ask_start_time
+    system "clear"
+    puts "==".center(80, "=")
+    puts "  Please enter a custom start time in 24-hour format  ".center(80, "=")
+    puts "==".center(80, "=")
+  end
+
+  def ask_end_time
+    system "clear"
+    puts "==".center(80, "=")
+    puts "  Please enter a custom end time in 24-hour format  ".center(80, "=")
     puts "==".center(80, "=")
   end
 
@@ -42,17 +57,6 @@ class View
     puts
     puts "          Your neighborhood had #{felonies_count} serious felonies at that time of day."
 
-      # if felonies_count > 350 #MAGIC NUMBER
-      #   puts "          You best GTFO!"
-      # elsif felonies_count < 250 && felonies_count > 349
-      #   puts "          Pepper spray is your best friend..."
-      # elsif felonies_count < 150 && felonies_count < 249
-      #   puts "          Your neighborhood is 'relatively' safe"
-      # elsif felonies_count < 149 && felonies_count > 100
-      #   puts "          Go ahead do that Tai-Chi!"
-      # else
-      #   puts "          You're fine!"
-      # end
 
       case felonies_count
         when 400..100000
