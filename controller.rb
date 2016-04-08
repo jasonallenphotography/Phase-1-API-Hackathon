@@ -62,7 +62,7 @@ class Controller
     end
 
     @view.report(@felonies)
-    sleep(5)
+    sleep(3)
     self.welcome
   end
 
