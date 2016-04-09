@@ -15,7 +15,7 @@ Ayaz Uddin - [Ayaz2589 on GitHub](https://github.com/Ayaz2589)
 Joseph Yoo - [notjoeyoo on GitHub](https://github.com/notjoeyoo)
 
 
-Our app draws its data from NYC OpenData's [database of major felony offenses](https://data.cityofnewyork.us/Public-Safety/NYPD-7-Major-Felony-Incidents/hyij-8hr7), specifically from the past whole calendar year (2015) and the current year (2016) to date.
+Our app draws its data from NYC OpenData's [database of major felony offenses](https://data.cityofnewyork.us/Public-Safety/NYPD-7-Major-Felony-Incidents/hyij-8hr7) (which are murder, rape, robbery, assault, burglary, grand larceny, grand theft auto), specifically from the past whole calendar year (2015) and the current year (2016) to date.
 
 ### Overview
 Goal: to build an app that tells users how safe their police precinct is in the morning, afternoon, nighttime, or based on a user-defined range of time. Our app will return the total count of the 7 major felonies committed during the selected window of time. If a precinct is over a threshold that we deemed particularly unsafe, the app will curtly recommend that the user immediately get out of that area!
